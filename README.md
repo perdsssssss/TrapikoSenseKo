@@ -1,1 +1,1 @@
-https://perdssssssss.github.io/TrapikoSenseKo
+https://perdsssssss.github.io/TrapikoSenseKo/
