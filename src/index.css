@@ -1,0 +1,107 @@
+:root {
+  --primary: #3b82f6;
+  --secondary: #10b981;
+  --accent: #f59e0b;
+  --danger: #ef4444;
+  --bg-dark: #0a0a0c;
+  --card-bg: rgba(23, 23, 27, 0.8);
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg-dark);
+  color: #fff;
+  overflow: hidden;
+}
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.premium-shadow {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* Leaflet Overrides */
+.leaflet-container {
+  background: #f8f9fa !important;
+}
+
+.leaflet-bar {
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+}
+
+.leaflet-bar a {
+  background: var(--card-bg) !important;
+  color: #fff !important;
+  border: 1px solid var(--glass-border) !important;
+}
+
+/* Animations */
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.traffic-alert-pulse {
+  animation: pulse-red 2s infinite;
+}
+
+/* Map Pulse Icon */
+.custom-pulse-icon {
+  position: relative;
+}
+
+.pulse-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.pulse-ring {
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: map-pulse 1.5s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes map-pulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
